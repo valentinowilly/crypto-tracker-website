@@ -5,8 +5,18 @@
 }
 
 :root {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Roboto",
+    "Oxygen",
+    "Ubuntu",
+    "Cantarell",
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
     sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -22,7 +32,7 @@ body {
 
 .app {
   min-height: 100vh;
-  background: #010203;
+  background: #002631;
   padding: 0;
 }
 
@@ -51,7 +61,7 @@ body {
 
 .logo-section h1 {
   font-size: 2.5rem;
-  background: #add8e6;
+  background: #a6ea84;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -87,7 +97,7 @@ body {
 
 .search-input:focus {
   outline: none;
-  border-color: #add8e6;
+  border-color: #a0b0a2;
   box-shadow: 0 0 0 3px rgba(173, 216, 230, 0.2);
   background: rgba(255, 255, 255, 0.08);
 }
@@ -111,7 +121,7 @@ body {
 }
 
 .filter-group label {
-  color: #e0e0e0;
+  color: #a0b0a2;
   font-weight: 600;
 }
 
@@ -133,8 +143,8 @@ body {
 
 .filter-group select:focus {
   outline: none;
-  border-color: #add8e6;
-  box-shadow: 0 0 0 3px rgba(173, 216, 230, 0.2);
+  border-color: #a0b0a2;
+  box-shadow: 0 0 0 3px rgba(160, 176, 162, 0.2);
 }
 
 .view-toggle {
@@ -160,7 +170,7 @@ body {
 }
 
 .view-toggle button.active {
-  background: #add8e6;
+  background: #a6ea84;
   color: #010203;
   border-color: transparent;
   box-shadow: 0 4px 15px rgba(173, 216, 230, 0.3);
@@ -262,14 +272,14 @@ body {
 
 .crypto-info .rank {
   display: inline-block;
-  background: #add8e6;
+  background: #a6ea84;
   color: #010203;
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
   font-size: 0.75rem;
   font-weight: 700;
   margin-top: 0.25rem;
-  box-shadow: 0 4px 10px rgba(173, 216, 230, 0.3);
+  box-shadow: 0 4px 10px rgba(160, 176, 162, 0.3);
 }
 
 .crypto-price {
@@ -448,7 +458,7 @@ body {
 
 .coin-header .rank {
   display: inline-block;
-  background: #add8e6;
+  background: #a6ea84;
   color: #010203;
   padding: 0.5rem 1rem;
   border-radius: 20px;
