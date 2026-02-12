@@ -4,7 +4,7 @@
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ![CoinGecko](https://img.shields.io/badge/API-CoinGecko-8BC03E?style=for-the-badge)
 
-Aplikasi pemantau harga aset kripto *real-time* yang dibangun dengan React dan Vite. Proyek ini berfokus pada performa, pengelolaan data API yang efisien, dan tampilan antarmuka yang bersih dengan sentuhan estetika *cyberpunk/glassmorphism*.
+Aplikasi pemantau harga aset kripto *real-time* yang dibangun dengan React dan Vite. Proyek ini berfokus pada performa, pengelolaan data API yang efisien, dan tampilan antarmuka yang bersih dengan sentuhan estetika.
 
 ## ✨ Fitur Utama
 
@@ -17,15 +17,15 @@ Aplikasi pemantau harga aset kripto *real-time* yang dibangun dengan React dan V
 
 * **Framework**: React.js (Vite)
 * **Styling**: CSS
-* **State Management**: Context API & React Hooks (`useState`, `useEffect`, `useMemo`)
+* **State Management**: Context API & React Hooks 
 * **Data Fetching**: Axios
 * **Charting**: Recharts
 
 ## 🚀 Cara Menjalankan Project
 
-Ikuti langkah-langkah berikut untuk menjalankan project di komputermu:
+Ikuti langkah-langkah berikut untuk menjalankan project:
 
-1.  **Clone repository ini**
+1.  **Clone repository**
     ```bash
     git clone [https://github.com/valentinowilly/crypto-tracker-website.git](https://github.com/valentinowilly/crypto-tracker-website.git)
     cd crypto-tracker-website
@@ -54,7 +54,7 @@ src/
 │   ├── DecryptedText.jsx  # Komponen animasi teks judul
 │   └── Dropdown.jsx       # Komponen dropdown custom
 ├── context/
-│   └── CurrencyContext.jsx # Global state untuk mata uang (IDR/USD)
+│   └── CurrencyContext.jsx # Global state untuk mata uang 
 ├── pages/
 │   ├── Home.jsx           # Halaman utama (List & Grid view)
 │   └── CoinDetail.jsx     # Halaman detail & grafik koin
