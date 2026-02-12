@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchCryptos } from "../api/coinGecko";
 import { CryptoCard } from "../components/CryptoCard";
 import { Dropdown } from "../components/dropdown";
+import { DecryptedText } from "../components/DecryptedText";
 export const Home = () => {
   const [cryptoList, setCryptoList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
@@ -72,7 +73,15 @@ export const Home = () => {
       <header className="header">
         <div className="header-content">
           <div className="logo-section">
-            <h1>🚀 Crypto Tracker</h1>
+            <h1 style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+              <span>🚀</span>
+              <DecryptedText
+                text="Crypto Tracker"
+                speed={30}
+                maxIterations={15}
+                className="neon-title" // Kita akan tambahkan CSS untuk ini nanti
+              />
+            </h1>
             <p>Real-time cryptocurrency prices and market data</p>
           </div>
           <div className="search-section">
