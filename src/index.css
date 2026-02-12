@@ -630,3 +630,91 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* --- Custom Dropdown Styles --- */
+.custom-dropdown {
+  position: relative;
+  width: 200px;
+  z-index: 50;
+}
+
+.dropdown-trigger {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  font-family: inherit;
+  font-weight: 500;
+}
+
+.dropdown-trigger:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(166, 234, 132, 0.5); /* Warna hijau neon */
+}
+
+.dropdown-trigger .arrow {
+  font-size: 0.75rem;
+  transition: transform 0.3s ease;
+  color: #a6ea84;
+}
+
+.dropdown-trigger.open .arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 110%; /* Muncul sedikit di bawah tombol */
+  left: 0;
+  right: 0;
+  background: #002631; /* Warna background utama aplikasi */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  animation: slideDown 0.2s ease-out;
+}
+
+.dropdown-item {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  color: #a0a0b0;
+  transition: all 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown-item:hover {
+  background: rgba(166, 234, 132, 0.1);
+  color: #fff;
+}
+
+.dropdown-item.active {
+  color: #a6ea84;
+  background: rgba(166, 234, 132, 0.05);
+  font-weight: 600;
+}
+
+.check {
+  font-size: 0.8rem;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

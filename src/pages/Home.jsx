@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchCryptos } from "../api/coinGecko";
 import { CryptoCard } from "../components/CryptoCard";
+import { Dropdown } from "../components/dropdown";
 export const Home = () => {
   const [cryptoList, setCryptoList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
@@ -8,6 +9,15 @@ export const Home = () => {
   const [viewMode, setViewMode] = useState("grid");
   const [sortBy, setSortBy] = useState("market_cap_rank");
   const [searchQuery, setSearchQuery] = useState("");
+
+  const sortOptions = [
+    { label: "Rank", value: "market_cap_rank" },
+    { label: "Name", value: "name" },
+    { label: "Price (Low to High)", value: "price" },
+    { label: "Price (High to Low)", value: "price_desc" },
+    { label: "24h Change", value: "change" },
+    { label: "Market Cap", value: "market_cap" },
+  ];
 
   useEffect(() => {
     const interval = setInterval(fetchCryptoData, 60000);
@@ -78,15 +88,13 @@ export const Home = () => {
       </header>
       <div className="controls">
         <div className="filter-group">
-          <label>Sort by:</label>
-          <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-            <option value="market_cap_rank">Rank</option>
-            <option value="name">Name</option>
-            <option value="price">Price (Low to High)</option>
-            <option value="price_desc">Price (High to Low)</option>
-            <option value="change">24h Change</option>
-            <option value="market_cap">Market Cap</option>
-          </select>
+          <label style={{ marginRight: "10px" }}>Sort by:</label>
+
+          <Dropdown
+            options={sortOptions}
+            value={sortBy}
+            onChange={(val) => setSortBy(val)}
+          />
         </div>
         <div className="view-toggle">
           <button
