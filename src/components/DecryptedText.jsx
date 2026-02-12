@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-// Karakter acak yang akan muncul saat animasi
 const chars =
   "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
 
@@ -17,20 +16,18 @@ export const DecryptedText = ({
     let iteration = 0;
     let interval = null;
 
-    // Fungsi untuk memulai animasi
     const startAnimation = () => {
       clearInterval(interval);
 
       interval = setInterval(() => {
-        setDisplayText((prev) =>
+        setDisplayText(() =>
           text
             .split("")
             .map((letter, index) => {
-              // Jika karakter sudah benar (sesuai iterasi), biarkan
               if (index < iteration) {
                 return text[index];
               }
-              // Jika belum, tampilkan karakter acak
+
               return chars[Math.floor(Math.random() * chars.length)];
             })
             .join(""),
@@ -40,22 +37,19 @@ export const DecryptedText = ({
           clearInterval(interval);
         }
 
-        // Kecepatan pengungkapan huruf (1/3 huruf per tick agar lebih organik)
         iteration += 1;
       }, speed);
     };
 
-    // Jalankan animasi saat pertama kali load atau saat di-hover
     startAnimation();
 
-    // Cleanup saat unmount
     return () => clearInterval(interval);
   }, [text, speed, isHovered]);
 
   return (
     <span
       className={className}
-      onMouseEnter={() => setIsHovered(!isHovered)} // Re-animate saat hover
+      onMouseEnter={() => setIsHovered(!isHovered)}
       style={{
         display: "inline-block",
         cursor: "default",
