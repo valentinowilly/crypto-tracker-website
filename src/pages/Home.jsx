@@ -10,7 +10,7 @@ export const Home = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    const interval = setInterval(fetchCryptoData, 3000);
+    const interval = setInterval(fetchCryptoData, 60000);
 
     return () => clearInterval(interval);
   }, []);
@@ -34,7 +34,7 @@ export const Home = () => {
     let filtered = cryptoList.filter(
       (crypto) =>
         crypto.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        crypto.symbol.toLowerCase().includes(searchQuery.toLowerCase())
+        crypto.symbol.toLowerCase().includes(searchQuery.toLowerCase()),
     );
 
     filtered.sort((a, b) => {
@@ -118,7 +118,7 @@ export const Home = () => {
       )}
 
       <footer className="footer">
-        <p>Data provided by CoinGecko API • Updated every 30 seconds</p>
+        <p>Data provided by CoinGecko API • Updated every 60 seconds</p>
       </footer>
     </div>
   );
