@@ -79,7 +79,7 @@ export const Home = () => {
                 text="Crypto Tracker"
                 speed={30}
                 maxIterations={15}
-                className="neon-title" // Kita akan tambahkan CSS untuk ini nanti
+                className="neon-title"
               />
             </h1>
             <p>Real-time cryptocurrency prices and market data</p>

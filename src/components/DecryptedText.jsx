@@ -36,12 +36,12 @@ export const DecryptedText = ({
             .join(""),
         );
 
-        if (iteration >= text.length) {
+        if (iteration >= maxIterations) {
           clearInterval(interval);
         }
 
         // Kecepatan pengungkapan huruf (1/3 huruf per tick agar lebih organik)
-        iteration += 1 / 3;
+        iteration += 1;
       }, speed);
     };
 
