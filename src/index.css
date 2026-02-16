@@ -644,7 +644,6 @@ body {
   }
 }
 
-/* --- Custom Dropdown Styles --- */
 .custom-dropdown {
   position: relative;
   width: 200px;
@@ -670,7 +669,7 @@ body {
 
 .dropdown-trigger:hover {
   background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(166, 234, 132, 0.5); /* Warna hijau neon */
+  border-color: rgba(166, 234, 132, 0.5);
 }
 
 .dropdown-trigger .arrow {
@@ -685,10 +684,10 @@ body {
 
 .dropdown-menu {
   position: absolute;
-  top: 110%; /* Muncul sedikit di bawah tombol */
+  top: 110%;
   left: 0;
   right: 0;
-  background: #002631; /* Warna background utama aplikasi */
+  background: #002631;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
@@ -730,4 +729,34 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes starPop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.star-pop {
+  animation: starPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.watchlist-btn:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 2px rgba(255, 215, 0, 0.5));
+}
+
+.view-toggle button {
+  transition: all 0.3s ease;
+}
+.view-toggle button.active {
+  background-color: #10b981;
+  color: white;
+  font-weight: bold;
 }
