@@ -1,8 +1,11 @@
+// src/pages/Home.jsx
 import { useEffect, useState } from "react";
-import { fetchCryptos } from "../api/coinGecko";
+import { getMarkets } from "../api/coinGecko";
 import { CryptoCard } from "../components/CryptoCard";
-import { Dropdown } from "../components/dropdown";
+import { Dropdown } from "../components/Dropdown";
 import { DecryptedText } from "../components/DecryptedText";
+import { useCurrency } from "../context/CurrencyContext"; // Import context
+
 export const Home = () => {
   const [cryptoList, setCryptoList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
@@ -10,6 +13,9 @@ export const Home = () => {
   const [viewMode, setViewMode] = useState("grid");
   const [sortBy, setSortBy] = useState("market_cap_rank");
   const [searchQuery, setSearchQuery] = useState("");
+
+  // Ambil currency dari context
+  const { currency, setCurrency } = useCurrency();
 
   const sortOptions = [
     { label: "Rank", value: "market_cap_rank" },
@@ -20,19 +26,27 @@ export const Home = () => {
     { label: "Market Cap", value: "market_cap" },
   ];
 
-  useEffect(() => {
-    const interval = setInterval(fetchCryptoData, 60000);
+  // Opsi untuk dropdown mata uang
+  const currencyOptions = [
+    { label: "USD ($)", value: "usd" },
+    { label: "IDR (Rp)", value: "idr" },
+  ];
 
+  useEffect(() => {
+    fetchCryptoData();
+    const interval = setInterval(fetchCryptoData, 60000);
     return () => clearInterval(interval);
-  }, []);
+  }, [currency]); // Refresh saat currency berubah
 
   useEffect(() => {
     filterAndSort();
   }, [sortBy, cryptoList, searchQuery]);
 
   const fetchCryptoData = async () => {
+    setIsLoading(true);
     try {
-      const data = await fetchCryptos();
+      // Panggil API dengan parameter currency
+      const data = await getMarkets(currency);
       setCryptoList(data);
     } catch (err) {
       console.error("Error fetching crypto: ", err);
@@ -95,16 +109,27 @@ export const Home = () => {
           </div>
         </div>
       </header>
+
       <div className="controls">
+        {/* Dropdown Mata Uang */}
+        <div className="filter-group">
+          <label style={{ marginRight: "10px" }}>Currency:</label>
+          <Dropdown
+            options={currencyOptions}
+            value={currency}
+            onChange={(val) => setCurrency(val)}
+          />
+        </div>
+
         <div className="filter-group">
           <label style={{ marginRight: "10px" }}>Sort by:</label>
-
           <Dropdown
             options={sortOptions}
             value={sortBy}
             onChange={(val) => setSortBy(val)}
           />
         </div>
+
         <div className="view-toggle">
           <button
             className={viewMode === "grid" ? "active" : ""}
@@ -129,7 +154,8 @@ export const Home = () => {
       ) : (
         <div className={`crypto-container ${viewMode}`}>
           {filteredList.map((crypto, key) => (
-            <CryptoCard crypto={crypto} key={key} />
+            // Kirim currency ke komponen kartu
+            <CryptoCard crypto={crypto} key={key} currency={currency} />
           ))}
         </div>
       )}

@@ -1,16 +1,64 @@
-# React + Vite
+# 🚀 Crypto Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![CoinGecko](https://img.shields.io/badge/API-CoinGecko-8BC03E?style=for-the-badge)
 
-Currently, two official plugins are available:
+Aplikasi pemantau harga aset kripto *real-time* yang dibangun dengan React dan Vite. Proyek ini berfokus pada performa, pengelolaan data API yang efisien, dan tampilan antarmuka yang bersih dengan sentuhan estetika.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Fitur Utama
 
-## React Compiler
+* **Real-time Market Data**: Mengambil data harga, market cap, dan volume terbaru dari CoinGecko API setiap 60 detik.
+* **Multi-Currency Support**: Dukungan penuh untuk konversi mata uang **USD ($)** secara instan.
+* **Smart Search**: Fitur pencarian koin untuk mempercepat tracking.
+* **Custom Sorting**: Urutkan koin berdasarkan Peringkat, Nama, Harga, atau Perubahan menggunakan dropdown kustom.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Teknologi yang Digunakan
 
-## Expanding the ESLint configuration
+* **Framework**: React.js (Vite)
+* **Styling**: CSS
+* **State Management**: Context API & React Hooks 
+* **Data Fetching**: Axios
+* **Charting**: Recharts
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Cara Menjalankan Project
+
+Ikuti langkah-langkah berikut untuk menjalankan project:
+
+1.  **Clone repository**
+    ```bash
+    git clone [https://github.com/valentinowilly/crypto-tracker-website.git](https://github.com/valentinowilly/crypto-tracker-website.git)
+    cd crypto-tracker-website
+    ```
+
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
+
+3.  **Jalankan development server**
+    ```bash
+    npm run dev
+    ```
+
+4.  Buka browser dan akses `http://localhost:5173`
+
+## 📂 Struktur Project
+
+```bash
+src/
+├── api/
+│   └── coinGecko.js       # Konfigurasi API CoinGecko
+├── components/
+│   ├── CryptoCard.jsx     # Kartu tampilan koin
+│   ├── DecryptedText.jsx  # Komponen animasi teks judul
+│   └── Dropdown.jsx       # Komponen dropdown custom
+├── context/
+│   └── CurrencyContext.jsx # Global state untuk mata uang 
+├── pages/
+│   ├── Home.jsx           # Halaman utama (List & Grid view)
+│   └── CoinDetail.jsx     # Halaman detail & grafik koin
+├── utils/
+│   └── formatter.js       # Helper untuk format angka & mata uang
+├── App.jsx                # Komponen utama
+└── main.jsx               # Entry point
